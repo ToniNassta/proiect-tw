@@ -68,4 +68,4 @@ Changed or rejected: Am luat doar ceea ce aveam nevoie din raspuns
 
 ## What I learned / what did not work
 
-Am invata cum se creaza permalink-uri pentru commit-uri pe github, cum se pot partaja commit-urile si alte lucruri asemenataore referitoare la GitHub.
+- Am invata cum se creaza permalink-uri pentru commit-uri pe github, cum se pot partaja commit-urile si alte lucruri asemenataore referitoare la GitHub.
