@@ -3,63 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Electro Home - Magazin de produse electronice - mockup</title>
+    <title>Electronics Store - Magazin de produse electronice - mockup</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="app-header">
-      <h1>Electro Home</h1>
-      <p>
-        Magazinul numarul 1 pentru produse electronice in ceea ce priveste
-        raportul calitate pret.
-      </p>
-      <p class="app-count">3 elemente, dintre care 2 active</p>
+      <h1>Electronics Store</h1>
+      <p>Magazinul numarul 1 de produse electronice.</p>
+      <p class="app-count">3 produse, dintre care 2 in stoc</p>
     </header>
-    <main>
-      <div class="main-container">
-        <div class="form-container">
-          <form>
-            <h2>Titlue Formular</h2>
-            <label>Camp 1</label>
-            <input type="text" />
-            <label>Camp 2</label>
-            <input type="text" />
-            <select>
-              <option>Optiune 1</option>
-              <option>Optiune 2</option>
-              <option>Optiune 3</option>
-            </select>
-            <button>Trimite</button>
-          </form>
-        </div>
-        <div class="list-container">
-          <ul class="item-list">
-            <li class="item-card">
-              <div>
-                <p>test 1</p>
-                <span>activ</span>
-              </div>
-              <p class="eticheta">eticheta</p>
-            </li>
-            <li class="item-card done">
-              <div>
-                <p>test 2</p>
-                <span>gata</span>
-              </div>
-              <p class="eticheta">eticheta</p>
-            </li>
-            <li class="item-card">
-              <div>
-                <p>test 3</p>
-                <span>activ</span>
-              </div>
-              <p class="eticheta">eticheta</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <main class="container">
+      <section class="panel">
+        <h2>Adauga un produs in lista</h2>
+        <form class="item-form">
+          <label>Nume produs</label>
+          <input type="text" name="nume produs" placeholder="aspirator" />
+          <label>Disponibilitate Stoc (in stoc sau indisponibil in stoc)</label>
+          <input
+            type="text"
+            name="stoc-disp"
+            placeholder="in stoc / indisponibil in stoc"
+          />
+          <label>Eticheta Cerere</label>
+          <select name="eticheta">
+            <option value="cerere-mare">Cerere mare</option>
+            <option value="cerere-medie">Cerere medie</option>
+            <option value="cerere-mica">Cerere mica</option>
+          </select>
+          <button class="submit-btn" type="submit">Adauga</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Lista de produse</h2>
+        <!-- Când lista e goală: <p class="empty">Nu există niciun element.</p> -->
+        <ul class="item-list">
+          <li class="item-card">
+            <div>
+              <h3>Aspirator Robot</h3>
+              <span class="badge badge-cerere-mare">Cerere mare</span>
+            </div>
+            <span class="status">in stoc</span>
+          </li>
+          <li class="item-card">
+            <div>
+              <h3 class="done">Masina de spalat vase</h3>
+              <span class="badge badge-cerere-medie">Cerere medie</span>
+            </div>
+            <span class="status">indisponibil in stoc</span>
+          </li>
+          <li class="item-card">
+            <div>
+              <h3>Mixer de bucatarie electric</h3>
+              <span class="badge badge-cerere-mica">Cerere mica</span>
+            </div>
+            <span class="status">in stoc</span>
+          </li>
+        </ul>
+      </section>
     </main>
-    <footer class="footer-element">proiect tw eletro home 2026</footer>
+    <footer class="footer-element">
+      Proiect Tehnologii Web Electronics Store 2026
+    </footer>
   </body>
 </html>
-<!-- Când lista e goală: <p class="empty">Nu există niciun element.</p> -->
