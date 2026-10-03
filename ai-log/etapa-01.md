@@ -65,3 +65,7 @@ Changed or rejected: Am luat doar ceea ce ma intereseaa din raspuns
 Asked:trebuie pus textul index.html#L10-L64 intre paranteze []
 Got:"Da, exact. Sintaxa Markdown pentru link e:..."
 Changed or rejected: Am luat doar ceea ce aveam nevoie din raspuns
+
+## What I learned / what did not work
+
+Am invata cum se creaza permalink-uri pentru commit-uri pe github, cum se pot partaja commit-urile si alte lucruri asemenataore referitoare la GitHub.
