@@ -2,13 +2,11 @@ Numele aplciatiei: Electronics Store
 
 Descriere: Va fi o aplicatie web care reprezinta un magazin online al unei companii de produse electrice si electrocasnice.
 
-câmpurile:
+modul de rulare: Se deschide fisirul index.html in browser folosind extensia Live Server, prin apasarea butonului din dreapta jos "Go Live".
 
-elementele de test:
+AI usage:[Etapa 01](https://github.com/ToniNassta/proiect-tw/blob/00dd890bc83041608c94ad42e31674959b93bc7b/ai-log/etapa-01.md)
 
-modul de rulare:
-
-AI usage:
+Tabelul cu cerintele:
 
 | ID    | Requirement                                          | Where (permalink)                                                                                                                       | How to check     |
 | ----- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
