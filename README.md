@@ -4,6 +4,10 @@ Descriere: Va fi o aplicatie web care reprezinta un magazin online al unei compa
 
 modul de rulare: Se deschide fisirul index.html in browser folosind extensia Live Server, prin apasarea butonului din dreapta jos "Go Live".
 
+campurile: id, numeProdus, statusInStoc, statusCerere.
+
+## Stage 1 : HTML and CSSStage 1: static mockup with HTML and CSS
+
 AI usage:[Etapa 01](https://github.com/ToniNassta/proiect-tw/blob/4cb4dc9ed635cb2d0acd50a20ffebe96d5d6aa8b/ai-log/etapa-01.md)
 
 Tabelul cu cerintele
@@ -18,3 +22,23 @@ Tabelul cu cerintele
 | S1-R6 | 2 columns on desktop, 1 under 700px                  | [style.css#L89-L93 (@media)] (https://github.com/ToniNassta/proiect-tw/blob/00dd890bc83041608c94ad42e31674959b93bc7b/style.css#L89-L93) | resize < 700px   |
 | S1-R7 | visible focus, readable dark theme                   | [style.css#L148-L162] (https://github.com/ToniNassta/proiect-tw/blob/00dd890bc83041608c94ad42e31674959b93bc7b/style.css#L148-L162)      | Tab; dark mode   |
 | S1-R8 | commit “Stage 1” pushed                              | [Link to commits] (https://github.com/ToniNassta/proiect-tw/commits/master/)                                                            | commit history   |
+
+## Stage 2: data logic
+
+AI usage:[Etapa 02](https://github.com/ToniNassta/proiect-tw/blob/4cb4dc9ed635cb2d0acd50a20ffebe96d5d6aa8b/ai-log/etapa-01.md)
+
+| ID    | Requirement                              | Where (permalink)             | How to check         |
+| ----- | ---------------------------------------- | ----------------------------- | -------------------- |
+| S2-R1 | JS file linked, logs on page load        | index.html#L.. (script)       | open page, F12       |
+| S2-R2 | 3+ items with id, name, state, tag       | taskuri.js#L..-L..            | read                 |
+| S2-R3 | list, count, search, add, toggle, delete | taskuri.js#L..-L..            | console output       |
+| S2-R4 | add rejects empty name and invalid tag   | taskuri.js#L..                | last 2 console lines |
+| S2-R5 | original array unchanged after add       | taskuri.js#L..                | console line         |
+| S2-R6 | README Stage 2 section + AI log          | README.md, ai-log/etapa-02.md | read                 |
+| S2-R7 | commit "Stage 2" pushed                  | link to the commit            | commit history       |
+
+## Status
+
+- [x] Stage 1: static mockup
+- [x] Stage 2: data logic in JavaScript
+- [ ] Stage 3: Vite and React project
