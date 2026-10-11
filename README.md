@@ -34,7 +34,7 @@ AI usage:[Etapa 02](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7
 | S2-R3 | list, count, search, add, toggle, delete | [produse.js#L44-L110](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L44-L110)    | console output       |
 | S2-R4 | add rejects empty name and invalid tag   | [produse.js#L84-L100](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L84-L100)    | last 2 console lines |
 | S2-R5 | original array unchanged after add       | [produse.js#L145-L148](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L145-L148). | console line         |
-| S2-R6 | README Stage 2 section + AI log          | [README.md](),[etapa-02 (ai-log)]()                                                                                                  | read                 |
+| S2-R6 | AI log                                   | [etapa-02 (ai-log)](https://github.com/ToniNassta/proiect-tw/blob/677a929dd67d095aab36cd552222339d7736e961/ai-log/etapa-02.md)       | read                 |
 | S2-R7 | commit "Stage 2" pushed                  | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                            | commit history       |
 
 ## Status
