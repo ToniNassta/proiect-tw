@@ -62,3 +62,9 @@ Changed or rejected:Am luat ceea ce aveam nevoie si am citit o parte din explica
 Asked: "scrie tablul asta in md" + atasare poza cu tabelul din fisierul Etapa 2
 Got: tabelul scris in md
 Changed or rejected:Am luat tot, fiind un raspuns format doar din ce am cerut
+
+### 7. Ajutor la documentatie (link)
+
+Asked: "cum il fac link pe asta sau este bine asa index.html#L68 [https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/index.html#L68]"
+Got:explicatia dorita + observatii
+Changed or rejected: am vazut cum trebuie facut si am efectuat

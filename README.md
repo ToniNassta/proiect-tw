@@ -25,17 +25,17 @@ Tabelul cu cerintele
 
 ## Stage 2: data logic
 
-AI usage:[Etapa 02](https://github.com/ToniNassta/proiect-tw/blob/4cb4dc9ed635cb2d0acd50a20ffebe96d5d6aa8b/ai-log/etapa-01.md)
+AI usage:[Etapa 02](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/ai-log/etapa-02.md)
 
-| ID    | Requirement                              | Where (permalink)             | How to check         |
-| ----- | ---------------------------------------- | ----------------------------- | -------------------- |
-| S2-R1 | JS file linked, logs on page load        | index.html#L.. (script)       | open page, F12       |
-| S2-R2 | 3+ items with id, name, state, tag       | taskuri.js#L..-L..            | read                 |
-| S2-R3 | list, count, search, add, toggle, delete | taskuri.js#L..-L..            | console output       |
-| S2-R4 | add rejects empty name and invalid tag   | taskuri.js#L..                | last 2 console lines |
-| S2-R5 | original array unchanged after add       | taskuri.js#L..                | console line         |
-| S2-R6 | README Stage 2 section + AI log          | README.md, ai-log/etapa-02.md | read                 |
-| S2-R7 | commit "Stage 2" pushed                  | link to the commit            | commit history       |
+| ID    | Requirement                              | Where (permalink)                                                                                                                    | How to check         |
+| ----- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| S2-R1 | JS file linked, logs on page load        | [index.html#L68](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/index.html#L68)              | open page, F12       |
+| S2-R2 | 3+ items with id, name, state, tag       | [produse.js#L9-L34.](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L9-L34)       | read                 |
+| S2-R3 | list, count, search, add, toggle, delete | [produse.js#L44-L110](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L44-L110)    | console output       |
+| S2-R4 | add rejects empty name and invalid tag   | [produse.js#L84-L100](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L84-L100)    | last 2 console lines |
+| S2-R5 | original array unchanged after add       | [produse.js#L145-L148](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7e5615cddfc1aee88ff20ec53b7/produse.js#L145-L148). | console line         |
+| S2-R6 | README Stage 2 section + AI log          | [README.md](),[etapa-02 (ai-log)]()                                                                                                  | read                 |
+| S2-R7 | commit "Stage 2" pushed                  | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                            | commit history       |
 
 ## Status
 
