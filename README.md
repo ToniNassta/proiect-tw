@@ -37,8 +37,30 @@ AI usage:[Etapa 02](https://github.com/ToniNassta/proiect-tw/blob/daf3b88b4765d7
 | S2-R6 | AI log                                   | [etapa-02 (ai-log)](https://github.com/ToniNassta/proiect-tw/blob/677a929dd67d095aab36cd552222339d7736e961/ai-log/etapa-02.md)       | read                 |
 | S2-R7 | commit "Stage 2" pushed                  | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                            | commit history       |
 
+## Stage 3: Vite and React project
+
+The app now lives in `frontend/`, built with Vite. The data from stage 2
+moved into the main component; the list is still printed raw.
+
+## How to run
+
+cd frontend
+npm install
+npm run dev
+Then open the address printed in the terminal (http://localhost:5173).
+
+| ID    | Requirement                             | Where (permalink)             | How to check             |
+| ----- | --------------------------------------- | ----------------------------- | ------------------------ |
+| S3-R1 | npm run dev starts without errors       | frontend/package.json         | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | frontend/src/App.jsx#L..-L..  | edit data, save          |
+| S3-R3 | data from README, not from the example  | frontend/src/App.jsx#L..-L..  | compare with README      |
+| S3-R4 | stage 1 styles reused                   | frontend/src/App.css          | look at the page         |
+| S3-R5 | node_modules ignored, build passes      | frontend/.gitignore           | npm run build            |
+| S3-R6 | README Stage 3 section + AI log         | README.md, ai-log/etapa-03.md | read                     |
+| S3-R7 | commit "Stage 3" pushed                 | link to the commit            | commit history           |
+
 ## Status
 
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
-- [ ] Stage 3: Vite and React project
+- [x] Stage 3: Vite and React project
