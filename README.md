@@ -49,15 +49,15 @@ npm install
 npm run dev
 Then open the address printed in the terminal (http://localhost:5173).
 
-| ID    | Requirement                             | Where (permalink)             | How to check             |
-| ----- | --------------------------------------- | ----------------------------- | ------------------------ |
-| S3-R1 | npm run dev starts without errors       | frontend/package.json         | npm install, npm run dev |
-| S3-R2 | app name and counter computed from data | frontend/src/App.jsx#L..-L..  | edit data, save          |
-| S3-R3 | data from README, not from the example  | frontend/src/App.jsx#L..-L..  | compare with README      |
-| S3-R4 | stage 1 styles reused                   | frontend/src/App.css          | look at the page         |
-| S3-R5 | node_modules ignored, build passes      | frontend/.gitignore           | npm run build            |
-| S3-R6 | README Stage 3 section + AI log         | README.md, ai-log/etapa-03.md | read                     |
-| S3-R7 | commit "Stage 3" pushed                 | link to the commit            | commit history           |
+| ID    | Requirement                             | Where (permalink)                                                                                                                                   | How to check             |
+| ----- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| S3-R1 | npm run dev starts without errors       | [frontend/package.json](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/frontend/package.json)               | npm install, npm run dev |
+| S3-R2 | app name and counter computed from data | [frontend/src/App.jsx#L35-L37](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/frontend/src/App.jsx#L35-L37) | edit data, save          |
+| S3-R3 | data from README, not from the example  | [frontend/src/App.jsx#L1-L26](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/frontend/src/App.jsx#L1-L26)   | compare with README      |
+| S3-R4 | stage 1 styles reused                   | [frontend/src/App.css](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/frontend/src/App.css)                 | look at the page         |
+| S3-R5 | node_modules ignored, build passes      | [frontend/.gitignore](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/frontend/.gitignore)                   | npm run build            |
+| S3-R6 | README Stage 3 section + AI log         | README.md, ai-log/[etapa-03.md](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/ai-log/etapa-03.md)          | read                     |
+| S3-R7 | commit "Stage 3" pushed                 | [link to the commit](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                      | commit history           |
 
 ## Status
 
