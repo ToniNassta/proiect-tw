@@ -1,27 +1,30 @@
+import ProdusList from "./components/ProdusList";
+import Logo from "./components/Logo";
+
 const produseArr = [
   {
     id: 1,
     numeProdus: "Aspirator Robot test1",
     statusInStoc: true,
-    statusCerere: "cerere mare",
+    statusCerere: "mare",
   },
   {
     id: 2,
     numeProdus: "Masina de spalat vase",
     statusInStoc: false,
-    statusCerere: "cerere medie",
+    statusCerere: "medie",
   },
   {
     id: 3,
     numeProdus: "Mixer de bucatarie electric",
     statusInStoc: true,
-    statusCerere: "cerere mica",
+    statusCerere: "mica",
   },
   {
     id: 4,
     numeProdus: "Aspirator Robot test2",
     statusInStoc: true,
-    statusCerere: "cerere medie",
+    statusCerere: "medie",
   },
 ];
 
@@ -30,7 +33,10 @@ export default function App() {
   return (
     <>
       <header className="app-header">
-        <h1>Electronics Store</h1>
+        <div className="app-brand">
+          <Logo size={40} />
+          <h1>Electronics Store</h1>
+        </div>
         <p>Magazinul numarul 1 de produse electronice.</p>
         <p className="app-count">
           {produseArr.length} produse, dintre care {inStoc} in stoc
@@ -64,8 +70,9 @@ export default function App() {
 
         <section className="panel">
           <h2>Lista de produse</h2>
+          <ProdusList produse={produseArr} />
           {/* Când lista e goală: <p className="empty">Nu există niciun element.</p> -->*/}
-          <pre>{JSON.stringify(produseArr, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(produseArr, null, 2)}</pre> */}
           {/* <ul className="item-list">
             <li className="item-card">
               <div>
