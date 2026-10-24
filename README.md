@@ -75,8 +75,8 @@ The list is rendered from the data, through two components:
 | S4-R3 | map + key={id}, no console warnings | [ProdusList.jsx#L9-L10](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusList.jsx#L9-L10) | F12, Console       |
 | S4-R4 | message for empty list              | [ProdusList.jsx#L5-L6](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusList.jsx#L5-L6)   | set array to []    |
 | S4-R5 | state changes the card look         | [ProdusCard.jsx#L10](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusCard.jsx#L10)       | toggle a done flag |
-| S4-R6 | README Stage 4 section + AI log     | [ai-log/etapa-04.md]()                                                                                                                                        | read               |
-| S4-R7 | commit "Stage 4" pushed             | [link catre toate commit-urile]()                                                                                                                             | commit history     |
+| S4-R6 | README Stage 4 section + AI log     | [ai-log/etapa-04.md](https://github.com/ToniNassta/proiect-tw/blob/df5db633d89e6ee02b063933b8d8718ab5b10073/ai-log/etapa-04.md)                               | read               |
+| S4-R7 | commit "Stage 4" pushed             | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                     | commit history     |
 
 ## Status
 
