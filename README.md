@@ -59,8 +59,28 @@ Then open the address printed in the terminal (http://localhost:5173).
 | S3-R6 | README Stage 3 section + AI log         | README.md, ai-log/[etapa-03.md](https://github.com/ToniNassta/proiect-tw/blob/f4346bf63b2e1198740dbd13f60995ac553cecaa/ai-log/etapa-03.md)          | read                     |
 | S3-R7 | commit "Stage 3" pushed                 | [link to the commit](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                      | commit history           |
 
+## Stage 4: components
+
+The list is rendered from the data, through two components:
+
+- `TaskList` receives the whole array and renders one card per item
+- `TaskCard` receives a single item through props and displays it
+
+## Tabelul 4.2: Tabelul de verificare al Etapei 4
+
+| ID    | Requirement                         | Where (permalink)                                                                                                                                             | How to check       |
+| ----- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| S4-R1 | 2+ components in src/components/    | [frontend/src/components/](https://github.com/ToniNassta/proiect-tw/tree/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components)                    | open folder        |
+| S4-R2 | card receives data through props    | [ProdusCard.jsx#L8](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusCard.jsx#L8)         | read               |
+| S4-R3 | map + key={id}, no console warnings | [ProdusList.jsx#L9-L10](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusList.jsx#L9-L10) | F12, Console       |
+| S4-R4 | message for empty list              | [ProdusList.jsx#L5-L6](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusList.jsx#L5-L6)   | set array to []    |
+| S4-R5 | state changes the card look         | [ProdusCard.jsx#L10](https://github.com/ToniNassta/proiect-tw/blob/e84e387f764d00472a80a08138012365e44e32f6/frontend/src/components/ProdusCard.jsx#L10)       | toggle a done flag |
+| S4-R6 | README Stage 4 section + AI log     | [ai-log/etapa-04.md]()                                                                                                                                        | read               |
+| S4-R7 | commit "Stage 4" pushed             | [link catre toate commit-urile]()                                                                                                                             | commit history     |
+
 ## Status
 
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
+- [x] Stage 4: components rendered from data
