@@ -1,5 +1,6 @@
 import ProdusList from "./components/ProdusList";
 import Logo from "./components/Logo";
+import { useState } from "react";
 
 const produseArr = [
   {
@@ -28,76 +29,241 @@ const produseArr = [
   },
 ];
 
+function temaInitiala() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
 export default function App() {
-  const inStoc = produseArr.filter((produs) => produs.statusInStoc).length;
+  const [produse, setProduse] = useState(produseArr);
+  const [tema, setTema] = useState(temaInitiala);
+
+  function handleTema() {
+    const noua = tema === "dark" ? "light" : "dark";
+    setTema(noua);
+    document.documentElement.dataset.theme = noua;
+  }
+
+  const inStoc = produse.filter((produs) => produs.statusInStoc).length;
+
+  function handleToggle(id) {
+    setProduse((produse) =>
+      produse.map((produs) =>
+        produs.id === id
+          ? { ...produs, statusInStoc: !produs.statusInStoc }
+          : produs,
+      ),
+    );
+  }
+
+  function handleDelete(id) {
+    setProduse((produse) => produse.filter((produs) => produs.id !== id));
+  }
+
   return (
-    <>
-      <header className="app-header">
+    <div className="app-shell">
+      {/* Sidebar — linkurile sunt statice (placeholder) */}
+      <aside className="sidebar">
         <div className="app-brand">
-          <Logo size={40} />
-          <h1>Electronics Store</h1>
+          <Logo size={28} />
+          <span className="brand-nume">Electronics</span>
         </div>
-        <p>Magazinul numarul 1 de produse electronice.</p>
-        <p className="app-count">
-          {produseArr.length} produse, dintre care {inStoc} in stoc
-        </p>
-      </header>
-      <main className="container">
-        {/* <section className="panel">
-          <h2>Adauga un produs in lista</h2>
-          <form className="item-form">
-            <label>Nume produs</label>
-            <input type="text" name="nume produs" placeholder="aspirator" />
-            <label>
-              Disponibilitate Stoc (in stoc sau indisponibil in stoc)
-            </label>
-            <input
-              type="text"
-              name="stoc-disp"
-              placeholder="in stoc / indisponibil in stoc"
-            />
-            <label>Eticheta Cerere</label>
-            <select name="eticheta">
-              <option value="cerere-mare">cerere mare</option>
-              <option value="cerere-medie">cerere medie</option>
-              <option value="cerere-mica">cerere mica</option>
-            </select>
-            <button className="submit-btn" type="submit">
-              Adauga
+
+        <nav className="nav" aria-label="Navigare principala">
+          <a href="#" className="nav-link activ">
+            Panou
+          </a>
+          <a href="#" className="nav-link">
+            Produse
+          </a>
+          <a href="#" className="nav-link">
+            Reaprovizionare
+          </a>
+          <a href="#" className="nav-link">
+            Statistici
+          </a>
+        </nav>
+
+        <p className="nav-titlu">Categorii</p>
+        <nav className="nav" aria-label="Categorii">
+          <a href="#" className="nav-link">
+            <span className="punct punct-accent" aria-hidden="true"></span>
+            Electrocasnice
+          </a>
+          <a href="#" className="nav-link">
+            <span className="punct" aria-hidden="true"></span>
+            Bucatarie
+          </a>
+        </nav>
+
+        <button
+          className="theme-toggle"
+          onClick={handleTema}
+          aria-pressed={tema === "dark"}
+        >
+          {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
+        </button>
+      </aside>
+
+      <main className="main">
+        <header className="app-header">
+          <div>
+            <h1>Electronics Store</h1>
+            <p>Magazinul numarul 1 de produse electronice.</p>
+          </div>
+          <div className="header-actiuni">
+            <p className="app-count">
+              {produse.length} produse, dintre care {inStoc} in stoc
+            </p>
+            {/* placeholder — fara logica */}
+            <button className="btn-negru" type="button">
+              + Adauga produs
             </button>
-          </form>
-        </section> */}
+          </div>
+        </header>
+
+        {/* Rand 1 — carduri statice (placeholder) */}
+        <section className="panou-grid">
+          <div className="card-negru">
+            <h2>Situatia stocului</h2>
+            <div className="cifre-mari">
+              <div>
+                <span className="cifra">4</span>
+                <span className="cifra-eticheta">produse in lista</span>
+              </div>
+              <div>
+                <span className="cifra cifra-accent">1</span>
+                <span className="cifra-eticheta">fara stoc</span>
+              </div>
+            </div>
+            <div className="mini-carduri">
+              <div className="mini-card">
+                <strong>3</strong>
+                <span>In stoc</span>
+              </div>
+              <div className="mini-card">
+                <strong>1</strong>
+                <span>Indisponibil</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="card-alb">
+            <h2>Cerere</h2>
+            <div className="cerere-continut">
+              <svg
+                className="inel"
+                viewBox="0 0 80 80"
+                width="96"
+                height="96"
+                role="img"
+                aria-label="Cerere: mare 1, medie 2, mica 1"
+              >
+                <circle className="inel-fundal" cx="40" cy="40" r="30" />
+                <circle
+                  className="inel-mare"
+                  cx="40"
+                  cy="40"
+                  r="30"
+                  strokeDasharray="47 141"
+                />
+                <circle
+                  className="inel-medie"
+                  cx="40"
+                  cy="40"
+                  r="30"
+                  strokeDasharray="94 94"
+                  strokeDashoffset="-47"
+                />
+                <circle
+                  className="inel-mica"
+                  cx="40"
+                  cy="40"
+                  r="30"
+                  strokeDasharray="47 141"
+                  strokeDashoffset="-141"
+                />
+                <text x="40" y="45" textAnchor="middle" className="inel-text">
+                  4
+                </text>
+              </svg>
+              <ul className="legenda">
+                <li>
+                  <span className="punct punct-mare"></span>Mare · 1
+                </li>
+                <li>
+                  <span className="punct punct-medie"></span>Medie · 2
+                </li>
+                <li>
+                  <span className="punct punct-mica"></span>Mica · 1
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Rand 2 — carduri statice (placeholder) */}
+        <section className="panou-grid panou-grid-invers">
+          <div className="card-alb">
+            <h2>De reaprovizionat</h2>
+            <ul className="lista-reaprovizionare">
+              <li>
+                <input type="checkbox" checked readOnly aria-label="Bifat" />
+                <span className="taiat">Masina de spalat vase</span>
+              </li>
+            </ul>
+            <p className="nota">
+              Bifeaza un produs ca sa-l marchezi fara stoc.
+            </p>
+          </div>
+
+          <button className="card-adauga" type="button">
+            + Adauga produs nou
+          </button>
+        </section>
 
         <section className="panel">
-          <h2>Lista de produse</h2>
-          <ProdusList produse={produseArr} />
-          {/* Când lista e goală: <p className="empty">Nu există niciun element.</p> -->*/}
-          {/* <pre>{JSON.stringify(produseArr, null, 2)}</pre> */}
-          {/* <ul className="item-list">
-            <li className="item-card">
-              <div>
-                <h3>Aspirator Robot</h3>
-                <span className="badge badge-cerere-mare">cerere mare</span>
-              </div>
-              <span className="status">in stoc</span>
-            </li>
-            <li className="item-card">
-              <div>
-                <h3 className="done">Masina de spalat vase</h3>
-                <span className="badge badge-cerere-medie">cerere medie</span>
-              </div>
-              <span className="status">indisponibil in stoc</span>
-            </li>
-            <li className="item-card">
-              <div>
-                <h3>Mixer de bucatarie electric</h3>
-                <span className="badge badge-cerere-mica">crere mica</span>
-              </div>
-              <span className="status">in stoc</span>
-            </li>
-          </ul> */}
+          <div className="panel-titlu">
+            <h2>Lista de produse</h2>
+            <span className="sortare">Sorteaza dupa cerere ▾</span>
+          </div>
+          <ProdusList
+            produse={produse}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+          />
         </section>
       </main>
-    </>
+    </div>
   );
+  // <>
+  //   <header className="app-header">
+  //     <div className="app-brand">
+  //       <Logo size={40} />
+  //       <h1>Electronics Store</h1>
+  //     </div>
+  //     <p>Magazinul numarul 1 de produse electronice.</p>
+  //     <p className="app-count">
+  //       {produse.length} produse, dintre care {inStoc} in stoc
+  //     </p>
+  //     <button
+  //       className="theme-toggle"
+  //       onClick={handleTema}
+  //       aria-pressed={tema === "dark"}
+  //     >
+  //       {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
+  //     </button>
+  //   </header>
+  //   <main className="container">
+  //     <section className="panel">
+  //       <h2>Lista de produse</h2>
+  //       <ProdusList
+  //         produse={produse}
+  //         onToggle={handleToggle}
+  //         onDelete={handleDelete}
+  //       />
+  //     </section>
+  //   </main>
+  // </>
 }

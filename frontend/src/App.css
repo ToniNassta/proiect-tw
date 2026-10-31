@@ -1,3 +1,4 @@
+/* ---------- Culori: tema luminoasa ---------- */
 :root {
   --bg: #f4f5f7;
   --card: #ffffff;
@@ -12,8 +13,68 @@
   --cerere-mica: #3c8a5d;
   --in-stoc: #2e9e4e;
   --tag: #ffd23c;
+
+  /* cardurile "inversate" (negre in light, deschise in dark) */
+  --ink: #1a1a1a;
+  --on-ink: #f4f5f7;
+  --on-ink-muted: #a8a8a8;
+  --on-ink-stoc: #4fd47a;
+  --on-ink-border: #333438;
+
+  --radius-mare: 20px;
+  --radius-mic: 12px;
 }
 
+/* ---------- Culori: tema intunecata ---------- */
+/* sistemul e dark si utilizatorul n-a ales explicit "light" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a;
+    --card: #1e2024;
+    --text: #f2f2f2;
+    --muted: #9a9a9a;
+    --accent: #ff3b4e;
+    --accent-dark: #ff6b78;
+    --accent-soft: #3a1418;
+    --border: #2d2f34;
+    --cerere-mare: #e05a4a;
+    --cerere-medie: #d99a4e;
+    --cerere-mica: #4fb87a;
+    --in-stoc: #3fc268;
+    --tag: #ffd23c;
+
+    --ink: #f2f2f2;
+    --on-ink: #15161a;
+    --on-ink-muted: #5f6066;
+    --on-ink-stoc: #2e9e4e;
+    --on-ink-border: #d6d7da;
+  }
+}
+
+/* tema aleasa din buton are prioritate fata de cea a sistemului */
+:root[data-theme="dark"] {
+  --bg: #15161a;
+  --card: #1e2024;
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
+  --accent: #ff3b4e;
+  --accent-dark: #ff6b78;
+  --accent-soft: #3a1418;
+  --border: #2d2f34;
+  --cerere-mare: #e05a4a;
+  --cerere-medie: #d99a4e;
+  --cerere-mica: #4fb87a;
+  --in-stoc: #3fc268;
+  --tag: #ffd23c;
+
+  --ink: #f2f2f2;
+  --on-ink: #15161a;
+  --on-ink-muted: #5f6066;
+  --on-ink-stoc: #2e9e4e;
+  --on-ink-border: #d6d7da;
+}
+
+/* ---------- Baza ---------- */
 *,
 *::before,
 *::after {
@@ -28,227 +89,15 @@ body {
   line-height: 1.5;
 }
 
-.app-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 28px 16px;
-  gap: 4px;
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-}
-
-.app-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.app-logo {
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.app-header h1 {
+h1,
+h2,
+h3,
+p {
   margin: 0;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--text);
 }
 
-.app-header p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.app-count {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--card);
-  background: var(--accent);
-  padding: 4px 14px;
-  border-radius: 999px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 24px auto;
-  padding: 0 16px 48px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.panel {
-  background: var(--bg);
-  padding: 0;
-}
-
-.panel h2 {
-  margin: 0 0 16px;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.lista-produse {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-height: 260px;
-  padding: 24px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  transition:
-    box-shadow 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text);
-  min-height: 2.6em;
-}
-
-.badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  padding: 3px 8px;
-  border-radius: 0 8px 0 8px;
-  color: #1a1a1a;
-  background: var(--tag);
-}
-
-.badge-cerere-mare {
-  background-color: var(--tag);
-  color: #1a1a1a;
-}
-
-.badge-cerere-medie {
-  background-color: var(--tag);
-  color: #1a1a1a;
-}
-
-.badge-cerere-mica {
-  background-color: var(--tag);
-  color: #1a1a1a;
-}
-
-.status-stoc {
-  margin-top: 10px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.status-stoc.in-stoc {
-  color: var(--in-stoc);
-}
-
-.status-stoc.fara-stoc {
-  color: var(--muted);
-}
-
-.icon-stoc {
-  flex-shrink: 0;
-}
-
-li.done .card {
-  opacity: 0.55;
-}
-
-li.done .card h3 {
-  text-decoration: line-through;
-  color: var(--muted);
-}
-
-.empty {
-  text-align: center;
-  color: var(--muted);
-  padding: 40px;
-  background: var(--card);
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-}
-
-.item-form {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 0.9rem;
-  color: var(--muted);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.item-form input,
-.item-form select {
-  font-size: 0.9rem;
-  padding: 9px 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg);
-  color: var(--text);
-}
-
-.item-form input:focus,
-.item-form select:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.submit-btn,
-.add-to-cart {
-  margin-top: 10px;
-  padding: 12px 20px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--card);
-  background: var(--accent);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  width: 100%;
-}
-
-.submit-btn:hover,
-.add-to-cart:hover {
-  background: var(--accent-dark);
+button {
+  font: inherit;
 }
 
 :focus-visible {
@@ -256,8 +105,569 @@ li.done .card h3 {
   outline-offset: 2px;
 }
 
-@media (max-width: 600px) {
+/* ---------- Layout general ---------- */
+.app-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: calc(100vh - 40px);
+  padding: 20px 14px;
+  background: var(--card);
+  border-radius: var(--radius-mare);
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 8px;
+}
+
+.app-logo {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.brand-nume {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-mic);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav-link:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.nav-link.activ {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.nav-titlu {
+  padding: 0 12px;
+  margin-bottom: -10px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.punct {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+.punct-accent {
+  background: var(--accent);
+}
+.punct-mare {
+  background: var(--cerere-mare);
+}
+.punct-medie {
+  background: var(--cerere-medie);
+}
+.punct-mica {
+  background: var(--cerere-mica);
+}
+
+.theme-toggle {
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Main ---------- */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 4px 0;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.app-header p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.header-actiuni {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-header .app-count {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.btn-negru {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- Carduri de sus (statice) ---------- */
+.panou-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.panou-grid-invers {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+
+.card-alb,
+.card-negru {
+  padding: 22px;
+  border-radius: var(--radius-mare);
+}
+
+.card-alb {
+  background: var(--card);
+}
+
+.card-negru {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.card-alb h2,
+.card-negru h2 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cifre-mari {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+
+.cifra {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.cifra-accent {
+  color: var(--accent);
+}
+
+.cifra-eticheta {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--on-ink-muted);
+}
+
+.mini-carduri {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: var(--radius-mic);
+  background: var(--on-ink);
+  color: var(--ink);
+}
+
+.mini-card strong {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.mini-card span {
+  font-size: 0.75rem;
+}
+
+.mini-card-tag {
+  background: var(--tag);
+  color: #1a1a1a;
+}
+
+/* inel cerere */
+.cerere-continut {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inel circle {
+  fill: none;
+  stroke-width: 9;
+  transform: rotate(-90deg);
+  transform-origin: 40px 40px;
+}
+
+.inel-fundal {
+  stroke: var(--border);
+}
+.inel-mare {
+  stroke: var(--cerere-mare);
+}
+.inel-medie {
+  stroke: var(--cerere-medie);
+}
+.inel-mica {
+  stroke: var(--cerere-mica);
+}
+
+.inel-text {
+  fill: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* de reaprovizionat */
+.lista-reaprovizionare {
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-reaprovizionare li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.lista-reaprovizionare input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.taiat {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.nota {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.card-adauga {
+  min-height: 140px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-mare);
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.card-adauga:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Lista de produse ---------- */
+.panel-titlu {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.panel-titlu h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.sortare {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.lista-produse {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  min-height: 180px;
+  padding: 18px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-mare);
+  background: var(--card);
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border);
+}
+
+/* alternanta: cardul 1 si 4 din fiecare grup de 4 sunt "inversate" */
+.lista-produse li:nth-child(4n + 1) .card,
+.lista-produse li:nth-child(4n + 4) .card {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.card-sus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-sus input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.card-jos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--tag);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.status-stoc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.status-stoc.in-stoc {
+  color: var(--in-stoc);
+}
+
+.status-stoc.fara-stoc {
+  color: var(--accent);
+}
+
+.lista-produse li:nth-child(4n + 1) .status-stoc.in-stoc,
+.lista-produse li:nth-child(4n + 4) .status-stoc.in-stoc {
+  color: var(--on-ink-stoc);
+}
+
+.icon-stoc {
+  flex-shrink: 0;
+}
+
+.btn-sterge {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn-sterge:hover {
+  opacity: 1;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* produs fara stoc: card alb cu bordura rosie (castiga si peste alternanta) */
+.lista-produse li.done .card {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.lista-produse li.done .card h3 {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.empty {
+  padding: 40px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-mare);
+  background: var(--card);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sidebar .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-titlu,
+  .sidebar .nav[aria-label="Categorii"] {
+    display: none;
+  }
+
+  .theme-toggle {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .panou-grid,
+  .panou-grid-invers {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .app-shell {
+    padding: 16px;
+  }
+
   .lista-produse {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
