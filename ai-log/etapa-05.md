@@ -13,8 +13,10 @@ In conversatie am abordate teme cum ar fi:
 1. Design
 2. Rezolvare bug-uri design
 3. Adaugarea unor functionalitati insa fara logica state, doar placeholder
+4. Scriere in fisier MD
+5. Reolvare altori bag-uri
 
-4. Design
+6. Design
 
 Asked: I-am dat fiserele proiectului (componentel si CSS-ul) si i-am cerut mai multe design-uri, in cele din urma i-am dat un model pe care sa il copieze dar sa il adapeze la tema mea, continutul meu, culorile mele si asa mai departe. De asemenea i-am cerut si un mockup.
 Got: Fiseire modificare si design-ul cerut.
@@ -30,3 +32,13 @@ Changed or rejected: Am luat doar ce mi trebuia din ce mi-a dat.
 
 Asked: La desgin mi-a adaugat si in mockup functionalitati a caror logica eu nu o am implementata si pe acelea i-am zis sa mi le adauga fara logica state doar cu placeholdere
 Got: Placeholderele cu desgin si placeholdere dar fara logica
+Changed or rejected: Am luat ce aveam neoie din codul dat
+
+4. Scriere in fisier MD
+
+Asked: I-am dar poza cu tabelul cu cerintele care trebuia sa fi in read me si i-am spus sa mi-l scri in format md.
+Got: Tabelul scris in format md.
+Changed or rejected: Am copiat tabelul scris in format md.
+
+5. Reolvare altori bag-uri
+   A rezolvat ale bug-uri cand avand acces la fieiser.
