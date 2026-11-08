@@ -1,33 +1,34 @@
 import ProdusList from "./components/ProdusList";
 import Logo from "./components/Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchProduse } from "./api";
 
-const produseArr = [
-  {
-    id: 1,
-    numeProdus: "Aspirator Robot test1",
-    statusInStoc: true,
-    statusCerere: "mare",
-  },
-  {
-    id: 2,
-    numeProdus: "Masina de spalat vase",
-    statusInStoc: false,
-    statusCerere: "medie",
-  },
-  {
-    id: 3,
-    numeProdus: "Mixer de bucatarie electric",
-    statusInStoc: true,
-    statusCerere: "mica",
-  },
-  {
-    id: 4,
-    numeProdus: "Aspirator Robot test2",
-    statusInStoc: true,
-    statusCerere: "medie",
-  },
-];
+// const produseArr = [
+//   {
+//     id: 1,
+//     numeProdus: "Aspirator Robot test1",
+//     statusInStoc: true,
+//     statusCerere: "mare",
+//   },
+//   {
+//     id: 2,
+//     numeProdus: "Masina de spalat vase",
+//     statusInStoc: false,
+//     statusCerere: "medie",
+//   },
+//   {
+//     id: 3,
+//     numeProdus: "Mixer de bucatarie electric",
+//     statusInStoc: true,
+//     statusCerere: "mica",
+//   },
+//   {
+//     id: 4,
+//     numeProdus: "Aspirator Robot test2",
+//     statusInStoc: true,
+//     statusCerere: "medie",
+//   },
+// ];
 
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -36,8 +37,28 @@ function temaInitiala() {
 }
 
 export default function App() {
-  const [produse, setProduse] = useState(produseArr);
+  const [produse, setProduse] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [tema, setTema] = useState(temaInitiala);
+
+  useEffect(() => {
+    let ignore = false;
+    async function load() {
+      try {
+        const data = await fetchProduse();
+        if (!ignore) setProduse(data);
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function handleTema() {
     const noua = tema === "dark" ? "light" : "dark";
@@ -228,11 +249,20 @@ export default function App() {
             <h2>Lista de produse</h2>
             <span className="sortare">Sorteaza dupa cerere ▾</span>
           </div>
-          <ProdusList
-            produse={produse}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
+          {loading && <p className="info">Se incerca produsele...</p>}
+          {error && (
+            <p className="error">
+              Nu am putut încărca datele: {error}. Rulează
+              <code> npm run api</code>?
+            </p>
+          )}
+          {!error && !loading && (
+            <ProdusList
+              produse={produse}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </div>

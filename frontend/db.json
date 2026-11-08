@@ -1,0 +1,28 @@
+{
+  "produseArr": [
+    {
+      "id": 1,
+      "numeProdus": "Aspirator Robot test1",
+      "statusInStoc": true,
+      "statusCerere": "mare"
+    },
+    {
+      "id": 2,
+      "numeProdus": "Masina de spalat vase",
+      "statusInStoc": false,
+      "statusCerere": "medie"
+    },
+    {
+      "id": 3,
+      "numeProdus": "Mixer de bucatarie electric",
+      "statusInStoc": true,
+      "statusCerere": "mica"
+    },
+    {
+      "id": 4,
+      "numeProdus": "Aspirator Robot test2",
+      "statusInStoc": true,
+      "statusCerere": "medie"
+    }
+  ]
+}

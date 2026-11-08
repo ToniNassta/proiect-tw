@@ -96,6 +96,25 @@ which is what stage 6 and stage 10 fix.
 | S5-R7 | no console warnings; README + AI log            | [ai-log/etapa-05.md](https://github.com/ToniNassta/proiect-tw/blob/4970d61fd08b6f1b03885f149aa801aa3471c081/ai-log/etapa-05.md)                                                                                                                                                                             | F12, Console                         |
 | S5-R8 | commit "Stage 5" pushed                         | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                                                                                                                                                                   | commit history                       |
 
+## Stage 6: data from a mock API
+
+The list is served by json-server from `db.json`. The app fetches it on load
+and shows a loading state and an error state.
+npm run api # terminal 1, http://localhost:3001
+npm run dev # terminal 2, http://localhost:5173
+
+**Tabelul 6.2: Tabelul de verificare al Etapei 6**
+
+| ID    | Requirement                          | Where (permalink)            | How to check              |
+| ----- | ------------------------------------ | ---------------------------- | ------------------------- |
+| S6-R1 | npm run api starts, route shows JSON | package.json#L.., db.json    | open localhost:3001/tasks |
+| S6-R2 | data no longer in React code         | App.jsx#L.. (useState([]))   | read                      |
+| S6-R3 | loading message while waiting        | App.jsx#L..                  | --delay 4000              |
+| S6-R4 | error message when API is down       | App.jsx#L..-L..              | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env   | api.js#L..-L.., .env.example | search for fetch          |
+| S6-R6 | README Stage 6 section + AI log      | ai-log/etapa-06.md           | read                      |
+| S6-R7 | commit "Stage 6" pushed              | link to the commit           | commit history            |
+
 ## Status
 
 - [x] Stage 1: static mockup
@@ -103,4 +122,5 @@ which is what stage 6 and stage 10 fix.
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
-- [ ] Stage 6: loading data from a mock API
+- [x] Stage 6: data from a mock API
+- [ ] Stage 7: form and validation

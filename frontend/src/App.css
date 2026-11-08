@@ -23,6 +23,9 @@
 
   --radius-mare: 20px;
   --radius-mic: 12px;
+
+  --error-bg: #fa001d;
+  --error-border: #9f2e3c;
 }
 
 /* ---------- Culori: tema intunecata ---------- */
@@ -670,4 +673,15 @@ button {
   .lista-produse {
     grid-template-columns: 1fr;
   }
+}
+
+.info {
+  color: var(--muted);
+}
+.error {
+  color: var(--mare);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
 }
