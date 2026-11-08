@@ -105,15 +105,15 @@ npm run dev # terminal 2, http://localhost:5173
 
 **Tabelul 6.2: Tabelul de verificare al Etapei 6**
 
-| ID    | Requirement                          | Where (permalink)            | How to check              |
-| ----- | ------------------------------------ | ---------------------------- | ------------------------- |
-| S6-R1 | npm run api starts, route shows JSON | package.json#L.., db.json    | open localhost:3001/tasks |
-| S6-R2 | data no longer in React code         | App.jsx#L.. (useState([]))   | read                      |
-| S6-R3 | loading message while waiting        | App.jsx#L..                  | --delay 4000              |
-| S6-R4 | error message when API is down       | App.jsx#L..-L..              | stop npm run api, refresh |
-| S6-R5 | fetch only in api.js, URL from env   | api.js#L..-L.., .env.example | search for fetch          |
-| S6-R6 | README Stage 6 section + AI log      | ai-log/etapa-06.md           | read                      |
-| S6-R7 | commit "Stage 6" pushed              | link to the commit           | commit history            |
+| ID    | Requirement                          | Where (permalink)                                                                                                                                                                                                                                                 | How to check              |
+| ----- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| S6-R1 | npm run api starts, route shows JSON | [package.json#L11](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/package.json#L11), [db.json](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/db.json)          | open localhost:3001/tasks |
+| S6-R2 | data no longer in React code         | [App.jsx#L40 (useState([]))](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/src/App.jsx#L40)                                                                                                                     | read                      |
+| S6-R3 | loading message while waiting        | [App.jsx#252](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/src/App.jsx#L252)                                                                                                                                   | --delay 4000              |
+| S6-R4 | error message when API is down       | [App.jsx#L253-L258](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/src/App.jsx#L253-L258)                                                                                                                        | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env   | [api.js#L2-L8](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/src/api.js#L2-L8), [.env.example](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/frontend/.env.example#L1) | search for fetch          |
+| S6-R6 | AI log                               | [ai-log/etapa-06.md](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/ai-log/etapa-06.md)                                                                                                                                   | read                      |
+| S6-R7 | commit "Stage 6" pushed              | [link catre toate commiturile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                                                                                                                          | commit history            |
 
 ## Status
 
