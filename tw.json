@@ -1,0 +1,6 @@
+{
+  "resource": "produseArr",
+  "title": "Denumire produs",
+  "done": "statusInStoc",
+  "sample": { "statusCerere": "mare" }
+}

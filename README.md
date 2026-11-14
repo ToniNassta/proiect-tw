@@ -115,6 +115,23 @@ npm run dev # terminal 2, http://localhost:5173
 | S6-R6 | AI log                               | [ai-log/etapa-06.md](https://github.com/ToniNassta/proiect-tw/blob/d4e04d7d3738948292181283b771ad3ca86b3cfe/ai-log/etapa-06.md)                                                                                                                                   | read                      |
 | S6-R7 | commit "Stage 6" pushed              | [link catre toate commiturile](https://github.com/ToniNassta/proiect-tw/commits/master/)                                                                                                                                                                          | commit history            |
 
+## Stage 7: form and validation
+
+Products can be added from the page. The form is controlled and validated,
+and every change (add, toggle, delete) goes to the API before it shows up
+in the list.
+
+| ID    | Requirement                                                 | Where (permalink)                   | How to check                      |
+| ----- | ----------------------------------------------------------- | ----------------------------------- | --------------------------------- |
+| S7-R1 | controlled form: value + onChange on every field            | ProduseForm.jsx#L..-L..             | read                              |
+| S7-R2 | empty title shows an error, nothing is sent                 | ProduseForm.jsx#L.. (valideaza)     | submit empty, watch Network       |
+| S7-R3 | added item shows in the list and survives refresh           | App.jsx#L.. (handleAdd), api.js#L.. | add, refresh                      |
+| S7-R4 | toggle and delete survive refresh                           | App.jsx#L..-L..                     | toggle/delete, refresh            |
+| S7-R5 | button disabled while sending, form cleared only on success | ProduseForm.jsx#L..-L..             | --delay 3000; stop API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3       | tw.json, ProdusCard.jsx#L..-L..     | querySelectorAll in the console   |
+| S7-R7 | README Stage 7 section + AI log                             | ai-log/etapa-07.md                  | read                              |
+| S7-R8 | commit "Stage 7" pushed                                     | link catre toate commit-urile       | commit history                    |
+
 ## Status
 
 - [x] Stage 1: static mockup
@@ -123,4 +140,5 @@ npm run dev # terminal 2, http://localhost:5173
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
-- [ ] Stage 7: form and validation
+- [x] Stage 7: form and validation
+- [ ] Stage 8: routing and detail page

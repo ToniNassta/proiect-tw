@@ -1,34 +1,13 @@
 import ProdusList from "./components/ProdusList";
 import Logo from "./components/Logo";
+import ProduseForm from "./components/ProduseForm.jsx";
 import { useEffect, useState } from "react";
-import { fetchProduse } from "./api";
-
-// const produseArr = [
-//   {
-//     id: 1,
-//     numeProdus: "Aspirator Robot test1",
-//     statusInStoc: true,
-//     statusCerere: "mare",
-//   },
-//   {
-//     id: 2,
-//     numeProdus: "Masina de spalat vase",
-//     statusInStoc: false,
-//     statusCerere: "medie",
-//   },
-//   {
-//     id: 3,
-//     numeProdus: "Mixer de bucatarie electric",
-//     statusInStoc: true,
-//     statusCerere: "mica",
-//   },
-//   {
-//     id: 4,
-//     numeProdus: "Aspirator Robot test2",
-//     statusInStoc: true,
-//     statusCerere: "medie",
-//   },
-// ];
+import {
+  deleteProdus,
+  fetchProduse,
+  createProdus,
+  updateProdus,
+} from "./api.js";
 
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -68,18 +47,39 @@ export default function App() {
 
   const inStoc = produse.filter((produs) => produs.statusInStoc).length;
 
-  function handleToggle(id) {
-    setProduse((produse) =>
-      produse.map((produs) =>
-        produs.id === id
-          ? { ...produs, statusInStoc: !produs.statusInStoc }
-          : produs,
-      ),
-    );
+  // Trimite produsul la API și îl adaugă în listă cu id-ul primit de la server.
+  // Dacă API-ul aruncă eroare, formularul o prinde și o afișează.
+  async function handleAdd(produsNou) {
+    const salvat = await createProdus(produsNou);
+    setProduse((produse) => [...produse, salvat]);
   }
 
-  function handleDelete(id) {
-    setProduse((produse) => produse.filter((produs) => produs.id !== id));
+  async function handleToggle(id) {
+    const produs = produse.find((p) => p.id === id);
+    try {
+      const actualizat = await updateProdus(id, {
+        statusInStoc: !produs.statusInStoc,
+      });
+      setProduse((produse) =>
+        produse.map((p) => (p.id === id ? actualizat : p)),
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deleteProdus(id);
+      setProduse((produse) => produse.filter((p) => p.id !== id));
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  // muta focusul in campul formularului (pentru butoanele "+ Adauga produs")
+  function focusFormular() {
+    document.getElementById("form-nume-produs")?.focus();
   }
 
   return (
@@ -137,8 +137,7 @@ export default function App() {
             <p className="app-count">
               {produse.length} produse, dintre care {inStoc} in stoc
             </p>
-            {/* placeholder — fara logica */}
-            <button className="btn-negru" type="button">
+            <button className="btn-negru" type="button" onClick={focusFormular}>
               + Adauga produs
             </button>
           </div>
@@ -239,61 +238,44 @@ export default function App() {
             </p>
           </div>
 
-          <button className="card-adauga" type="button">
+          <button className="card-adauga" type="button" onClick={focusFormular}>
             + Adauga produs nou
           </button>
         </section>
 
-        <section className="panel">
-          <div className="panel-titlu">
-            <h2>Lista de produse</h2>
-            <span className="sortare">Sorteaza dupa cerere ▾</span>
+        {/* Rand 3 — formularul in panoul din stanga, lista in dreapta */}
+        <section className="panou-lista">
+          <div className="panel panel-form">
+            <h2>Adaugă produs</h2>
+            <ProduseForm onAdd={handleAdd} />
           </div>
-          {loading && <p className="info">Se incerca produsele...</p>}
-          {error && (
-            <p className="error">
-              Nu am putut încărca datele: {error}. Rulează
-              <code> npm run api</code>?
-            </p>
-          )}
-          {!error && !loading && (
-            <ProdusList
-              produse={produse}
-              onToggle={handleToggle}
-              onDelete={handleDelete}
-            />
-          )}
+
+          <div className="panel">
+            <div className="panel-titlu">
+              <h2>Lista de produse</h2>
+              <span className="sortare">Sorteaza dupa cerere ▾</span>
+            </div>
+            {loading && (
+              <p className="info" data-testid="loading">
+                Se încarcă produsele...
+              </p>
+            )}
+            {error && (
+              <p className="error" data-testid="error">
+                Nu am putut încărca datele: {error}. Rulează
+                <code> npm run api</code>?
+              </p>
+            )}
+            {!loading && (
+              <ProdusList
+                produse={produse}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+              />
+            )}
+          </div>
         </section>
       </main>
     </div>
   );
-  // <>
-  //   <header className="app-header">
-  //     <div className="app-brand">
-  //       <Logo size={40} />
-  //       <h1>Electronics Store</h1>
-  //     </div>
-  //     <p>Magazinul numarul 1 de produse electronice.</p>
-  //     <p className="app-count">
-  //       {produse.length} produse, dintre care {inStoc} in stoc
-  //     </p>
-  //     <button
-  //       className="theme-toggle"
-  //       onClick={handleTema}
-  //       aria-pressed={tema === "dark"}
-  //     >
-  //       {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
-  //     </button>
-  //   </header>
-  //   <main className="container">
-  //     <section className="panel">
-  //       <h2>Lista de produse</h2>
-  //       <ProdusList
-  //         produse={produse}
-  //         onToggle={handleToggle}
-  //         onDelete={handleDelete}
-  //       />
-  //     </section>
-  //   </main>
-  // </>
 }

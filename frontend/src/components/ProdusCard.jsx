@@ -8,7 +8,11 @@ const ETICHETE_CERERE = {
 
 function ProdusCard({ produs, onToggle, onDelete }) {
   return (
-    <li className={!produs.statusInStoc ? "done" : ""}>
+    <li
+      className={!produs.statusInStoc ? "done" : ""}
+      data-testid="item"
+      data-id={produs.id}
+    >
       <div className="card">
         <div className="card-sus">
           <span className={`badge badge-cerere-${produs.statusCerere}`}>
@@ -19,10 +23,11 @@ function ProdusCard({ produs, onToggle, onDelete }) {
             checked={!produs.statusInStoc}
             onChange={() => onToggle(produs.id)}
             aria-label={`Marcheaza ${produs.numeProdus} fara stoc`}
+            data-testid="item-toggle"
           />
         </div>
 
-        <h3>{produs.numeProdus}</h3>
+        <h3 data-testid="item-title">{produs.numeProdus}</h3>
 
         <div className="card-jos">
           <span
@@ -36,6 +41,7 @@ function ProdusCard({ produs, onToggle, onDelete }) {
             className="btn-sterge"
             aria-label={`Stergere ${produs.numeProdus}`}
             title="Sterge"
+            data-testid="item-delete"
           >
             <svg
               width="16"

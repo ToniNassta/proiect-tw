@@ -3,7 +3,11 @@ import ProdusCard from "./ProdusCard";
 function ProdusList({ produse, onToggle, onDelete }) {
   //   produse = [];
   if (produse.length === 0)
-    return <p className="empty">Nu exista niciun produs</p>;
+    return (
+      <p className="empty" data-testid="empty">
+        Nu exista niciun produs
+      </p>
+    );
   return (
     <ul className="lista-produse">
       {produse.map((produs) => (

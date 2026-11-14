@@ -24,8 +24,9 @@
   --radius-mare: 20px;
   --radius-mic: 12px;
 
-  --error-bg: #fa001d;
-  --error-border: #9f2e3c;
+  --error-bg: #fde8e8;
+  --error-text: #9f1c2b;
+  --error-border: #f3b4bb;
 }
 
 /* ---------- Culori: tema intunecata ---------- */
@@ -51,6 +52,10 @@
     --on-ink-muted: #5f6066;
     --on-ink-stoc: #2e9e4e;
     --on-ink-border: #d6d7da;
+
+    --error-bg: #3a1418;
+    --error-text: #ff9aa4;
+    --error-border: #6b2530;
   }
 }
 
@@ -75,6 +80,10 @@
   --on-ink-muted: #5f6066;
   --on-ink-stoc: #2e9e4e;
   --on-ink-border: #d6d7da;
+
+  --error-bg: #3a1418;
+  --error-text: #ff9aa4;
+  --error-border: #6b2530;
 }
 
 /* ---------- Baza ---------- */
@@ -99,7 +108,9 @@ p {
   margin: 0;
 }
 
-button {
+button,
+input,
+select {
   font: inherit;
 }
 
@@ -471,6 +482,120 @@ button {
   color: var(--accent);
 }
 
+/* ---------- Rand 3: formular (stanga) + lista (dreapta) ---------- */
+.panou-lista {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  min-width: 0;
+}
+
+.panel-form {
+  position: sticky;
+  top: 20px;
+  padding: 22px;
+  border-radius: var(--radius-mare);
+  background: var(--card);
+}
+
+.panel-form h2 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ---------- Formular produs ---------- */
+.produs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.produs-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.produs-form input[aria-invalid="true"] {
+  border-color: var(--mare);
+}
+
+.form-camp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.form-camp input,
+.form-camp select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-mic);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: border-color 0.15s ease;
+}
+
+.form-camp input::placeholder {
+  color: var(--muted);
+}
+
+.form-camp input:focus,
+.form-camp select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.form-camp input[aria-invalid="true"] {
+  border-color: var(--accent);
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.btn-adauga {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-adauga:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn-adauga:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
 /* ---------- Lista de produse ---------- */
 .panel-titlu {
   display: flex;
@@ -630,7 +755,27 @@ button {
   text-align: center;
 }
 
+/* ---------- Mesaje ---------- */
+.info {
+  color: var(--muted);
+}
+
+.error {
+  padding: 10px 12px;
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  background: var(--error-bg);
+  color: var(--error-text);
+  font-size: 0.85rem;
+}
+
 /* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .panou-lista {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -660,8 +805,13 @@ button {
   }
 
   .panou-grid,
-  .panou-grid-invers {
+  .panou-grid-invers,
+  .panou-lista {
     grid-template-columns: 1fr;
+  }
+
+  .panel-form {
+    position: static;
   }
 }
 
@@ -673,15 +823,4 @@ button {
   .lista-produse {
     grid-template-columns: 1fr;
   }
-}
-
-.info {
-  color: var(--muted);
-}
-.error {
-  color: var(--mare);
-  background: var(--error-bg);
-  border: 1px solid var(--error-border);
-  border-radius: 8px;
-  padding: 10px 12px;
 }
