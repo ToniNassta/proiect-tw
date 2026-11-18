@@ -1,0 +1,5 @@
+/* ---------- Logo ---------- */
+.app-logo {
+  color: var(--accent);
+  flex-shrink: 0;
+}

@@ -1,7 +1,9 @@
+import styles from "./IconStoc.module.css";
+
 function IconStoc({ size = 10 }) {
   return (
     <svg
-      className="icon-stoc"
+      className={styles["icon-stoc"]}
       width={size}
       height={size}
       viewBox="0 0 10 10"

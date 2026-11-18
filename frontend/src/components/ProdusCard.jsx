@@ -1,22 +1,20 @@
+import { Link } from "react-router-dom";
 import IconStoc from "./IconStoc";
-
-const ETICHETE_CERERE = {
-  mare: "mare",
-  medie: "medie",
-  mica: "mica",
-};
+import { ETICHETE_CERERE } from "../constants.js";
+import styles from "./ProdusCard.module.css";
 
 function ProdusCard({ produs, onToggle, onDelete }) {
   return (
     <li
-      className={!produs.statusInStoc ? "done" : ""}
+      className={!produs.statusInStoc ? styles.done : undefined}
       data-testid="item"
       data-id={produs.id}
     >
-      <div className="card">
-        <div className="card-sus">
-          <span className={`badge badge-cerere-${produs.statusCerere}`}>
-            cerere {ETICHETE_CERERE[produs.statusCerere]}
+      <div className={styles.card}>
+        <div className={styles["card-sus"]}>
+          {/* clasele globale (badge, badge-*) raman scrise ca text */}
+          <span className={`badge badge-${produs.statusCerere}`}>
+            {ETICHETE_CERERE[produs.statusCerere]}
           </span>
           <input
             type="checkbox"
@@ -27,19 +25,29 @@ function ProdusCard({ produs, onToggle, onDelete }) {
           />
         </div>
 
-        <h3 data-testid="item-title">{produs.numeProdus}</h3>
+        <h3>
+          <Link
+            to={`/produse/${produs.id}`}
+            className={styles.title}
+            data-testid="item-link"
+          >
+            {produs.numeProdus}
+          </Link>
+        </h3>
 
-        <div className="card-jos">
+        <div className={styles["card-jos"]}>
           <span
-            className={`status-stoc ${produs.statusInStoc ? "in-stoc" : "fara-stoc"}`}
+            className={`${styles["status-stoc"]} ${
+              produs.statusInStoc ? styles["in-stoc"] : styles["fara-stoc"]
+            }`}
           >
             <IconStoc size={10} />
             {produs.statusInStoc ? "In stoc" : "Indisponibil in stoc"}
           </span>
           <button
+            className="btn-danger"
             onClick={() => onDelete(produs.id)}
-            className="btn-sterge"
-            aria-label={`Stergere ${produs.numeProdus}`}
+            aria-label={`Sterge ${produs.numeProdus}`}
             title="Sterge"
             data-testid="item-delete"
           >
@@ -61,36 +69,6 @@ function ProdusCard({ produs, onToggle, onDelete }) {
       </div>
     </li>
   );
-  // <li className={!produs.statusInStoc ? "done" : ""}>
-  //   <label className="task-main">
-  //     <div className="card">
-  //       <div className="card-titlu">
-  //         <input
-  //           type="checkbox"
-  //           checked={!produs.statusInStoc}
-  //           onChange={() => onToggle(produs.id)}
-  //         />
-  //         <h3>{produs.numeProdus}</h3>
-  //         <span className={`badge badge-cerere-${produs.statusCerere}`}>
-  //           cerere {ETICHETE_CERERE[produs.statusCerere]}
-  //         </span>
-  //       </div>
-  //       <span
-  //         className={`status-stoc ${produs.statusInStoc ? "in-stoc" : "fara-stoc"}`}
-  //       >
-  //         <IconStoc size={10} />
-  //         {produs.statusInStoc ? "In stoc" : "Indisponibil in stoc"}
-  //       </span>
-  //     </div>
-  //   </label>
-  //   <button
-  //     onClick={() => onDelete(produs.id)}
-  //     className="btn-danger"
-  //     aria-label={`Stergere ${produs.numeProdus}`}
-  //   >
-  //     Sterge
-  //   </button>
-  // </li>
 }
 
 export default ProdusCard;

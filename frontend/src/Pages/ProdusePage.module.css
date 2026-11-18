@@ -1,0 +1,220 @@
+/* ---------- Grila: formular (stanga) + lista (dreapta) ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* formularul ramane vizibil cat timp derulezi lista */
+.form-panel {
+  position: sticky;
+  top: 20px;
+}
+
+/* contorul de produse, mutat din antet in panoul listei */
+.summary {
+  margin-top: -8px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Carduri de sus (statice) ---------- */
+.panou-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.panou-grid-invers {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+
+.card-alb,
+.card-negru {
+  padding: 22px;
+  border-radius: var(--radius-mare);
+}
+
+.card-alb {
+  background: var(--card);
+}
+
+.card-negru {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.card-alb h2,
+.card-negru h2 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cifre-mari {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+
+.cifra {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.cifra-accent {
+  color: var(--accent);
+}
+
+.cifra-eticheta {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--on-ink-muted);
+}
+
+.mini-carduri {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: var(--radius-mic);
+  background: var(--on-ink);
+  color: var(--ink);
+}
+
+.mini-card strong {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.mini-card span {
+  font-size: 0.75rem;
+}
+
+/* inel cerere */
+.cerere-continut {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inel circle {
+  fill: none;
+  stroke-width: 9;
+  transform: rotate(-90deg);
+  transform-origin: 40px 40px;
+}
+
+.inel-fundal {
+  stroke: var(--border);
+}
+.inel-mare {
+  stroke: var(--cerere-mare);
+}
+.inel-medie {
+  stroke: var(--cerere-medie);
+}
+.inel-mica {
+  stroke: var(--cerere-mica);
+}
+
+.inel-text {
+  fill: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.legenda {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* de reaprovizionat */
+.lista-reaprovizionare {
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-reaprovizionare li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.lista-reaprovizionare input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.taiat {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.nota {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.card-adauga {
+  min-height: 140px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-mare);
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.card-adauga:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .panou-grid,
+  .panou-grid-invers {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    position: static;
+  }
+}

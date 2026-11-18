@@ -1,0 +1,70 @@
+/* ---------- Pagina de detaliu ---------- */
+/* fundalul si colturile vin din .panel; .info, .error si .badge
+   sunt clase globale (toate in index.css) */
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.detail h2 {
+  margin-bottom: 0; /* spatierea vine din gap */
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* produs fara stoc: titlu taiat, ca pe cardul din lista */
+.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* ---------- Link "Inapoi la lista" ---------- */
+.inapoi {
+  align-self: flex-start;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.inapoi:hover {
+  color: var(--accent);
+}
+
+/* ---------- Lista de detalii: eticheta | valoare ---------- */
+.detalii {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 10px 20px;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.detalii dt {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.detalii dd {
+  margin: 0; /* browserul pune implicit o margine la stanga */
+  font-weight: 500;
+}
+
+/* culorile statusului de stoc, ca pe cardul din lista */
+.detalii .in-stoc {
+  color: var(--in-stoc);
+  font-weight: 700;
+}
+
+.detalii .fara-stoc {
+  color: var(--accent);
+  font-weight: 700;
+}

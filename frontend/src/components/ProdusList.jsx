@@ -1,19 +1,22 @@
-import ProdusCard from "./ProdusCard";
+import ProdusCard from "./ProdusCard.jsx";
+import styles from "./ProdusList.module.css";
 
-function ProdusList({ produse, onToggle, onDelete }) {
-  //   produse = [];
-  if (produse.length === 0)
+export default function ProdusList({ produse, onToggle, onDelete }) {
+  if (produse.length === 0) {
     return (
+      // clasa globala (empty) ramane scrisa ca text
       <p className="empty" data-testid="empty">
-        Nu exista niciun produs
+        Nu există niciun produs.
       </p>
     );
+  }
+
   return (
-    <ul className="lista-produse">
+    <ul className={styles.list}>
       {produse.map((produs) => (
         <ProdusCard
-          produs={produs}
           key={produs.id}
+          produs={produs}
           onToggle={onToggle}
           onDelete={onDelete}
         />
@@ -21,5 +24,3 @@ function ProdusList({ produse, onToggle, onDelete }) {
     </ul>
   );
 }
-
-export default ProdusList;

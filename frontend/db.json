@@ -3,13 +3,13 @@
     {
       "id": 3,
       "numeProdus": "Mixer de bucatarie electric",
-      "statusInStoc": false,
+      "statusInStoc": true,
       "statusCerere": "mica"
     },
     {
       "id": 4,
       "numeProdus": "Aspirator Robot test2",
-      "statusInStoc": false,
+      "statusInStoc": true,
       "statusCerere": "medie"
     },
     {
@@ -21,13 +21,13 @@
     {
       "numeProdus": "fhdh",
       "statusCerere": "mare",
-      "statusInStoc": false,
+      "statusInStoc": true,
       "id": 7
     },
     {
       "numeProdus": "test33",
       "statusCerere": "medie",
-      "statusInStoc": false,
+      "statusInStoc": true,
       "id": 8
     },
     {
@@ -35,6 +35,24 @@
       "statusCerere": "medie",
       "statusInStoc": true,
       "id": 9
+    },
+    {
+      "numeProdus": "asda",
+      "statusCerere": "mare",
+      "statusInStoc": true,
+      "id": 10
+    },
+    {
+      "numeProdus": "apa",
+      "statusCerere": "mica",
+      "statusInStoc": true,
+      "id": 11
+    },
+    {
+      "numeProdus": "test34rer",
+      "statusCerere": "medie",
+      "statusInStoc": true,
+      "id": 12
     }
   ]
 }

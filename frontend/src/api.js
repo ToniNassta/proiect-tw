@@ -33,3 +33,7 @@ export function updateProdus(id, changes) {
 export function deleteProdus(id) {
   return request(`/produseArr/${id}`, { method: "DELETE" });
 }
+
+export function fetchProdus(id) {
+  return request(`/produseArr/${id}`);
+}

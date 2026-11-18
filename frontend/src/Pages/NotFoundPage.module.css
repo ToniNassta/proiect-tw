@@ -1,0 +1,23 @@
+/* ---------- Pagina 404 ---------- */
+/* fundalul si colturile vin din .panel, textul gri din .info,
+   iar linkul arata ca un buton prin .btn (toate in index.css) */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 40px 22px;
+  border: 2px dashed var(--border);
+  text-align: center;
+}
+
+.notFound h2 {
+  margin-bottom: 0; /* spatierea vine din gap */
+  font-size: 1.3rem;
+}
+
+.notFound :global(.btn) {
+  margin-top: 8px;
+}

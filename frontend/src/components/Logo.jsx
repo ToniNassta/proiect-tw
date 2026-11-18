@@ -1,7 +1,9 @@
+import styles from "./Logo.module.css";
+
 function Logo({ size = 40 }) {
   return (
     <svg
-      className="app-logo"
+      className={styles["app-logo"]}
       width={size}
       height={size}
       viewBox="0 0 48 48"

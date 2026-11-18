@@ -1,0 +1,183 @@
+/* ---------- Scheletul aplicatiei (fost .app-shell) ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* ---------- Bara de navigare (fost .sidebar) ---------- */
+.sidebar {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: calc(100vh - 40px);
+  padding: 20px 14px;
+  background: var(--card);
+  border-radius: var(--radius-mare);
+}
+
+/* (fost .app-brand) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 8px;
+}
+
+/* (fost .brand-nume) */
+.logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* (fost .nav-link) */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-mic);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.link:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* (fost .nav-link.activ) */
+.active,
+.active:hover {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+.nav-titlu {
+  padding: 0 12px;
+  margin-bottom: -10px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* lista de categorii: fara buline si fara spatiul implicit al lui <ul> */
+.categorii {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.theme-toggle {
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Coloana din dreapta: antet + pagina + subsol ---------- */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* (fost .app-header) */
+.header {
+  padding: 8px 4px 0;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* (fost .main) */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  flex: 1;
+}
+
+.footer {
+  padding: 16px 4px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-titlu,
+  .categorii {
+    display: none;
+  }
+
+  .theme-toggle {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .shell {
+    padding: 16px;
+  }
+}

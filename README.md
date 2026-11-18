@@ -132,6 +132,22 @@ in the list.
 | S7-R7 | README Stage 7 section + AI log                             | [ai-log/etapa-07.md](https://github.com/ToniNassta/proiect-tw/blob/317697c4abf7757cc6ddd5353d3ca8d230b5b3a2/ai-log/etapa-07.md)                                                                                                                                                                                                             | read                              |
 | S7-R8 | commit "Stage 7" pushed                                     | [link catre toate commit-urile](https://github.com/ToniNassta/proiect-tw/commits/317697c4abf7757cc6ddd5353d3ca8d230b5b3a2/)                                                                                                                                                                                                                 | commit history                    |
 
+## Stage 8: routing and detail page
+
+Three pages behind React Router: the list, a detail page at `/tasks/:id`,
+and an about page, plus a 404 page. Component styles moved to CSS Modules.
+
+| ID    | Requirement                                                                  | Where (permalink)                                                                   | How to check                      |
+| ----- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------- |
+| S8-R1 | header navigation changes page without reload                                | [App.jsx](),[Layout.jsx#L..-L..]()                                                  | click links, watch Network        |
+| S8-R2 | click on an item opens its detail page                                       | [ProdusCard.jsx#L..](), [ProdusDetaliuPage.jsx]()                                   | click a title                     |
+| S8-R3 | refresh on the detail URL works; missing id shows an error                   | [ProdusDetaliuPage.jsx#L..-L..]()                                                   | refresh /tasks/1, open /tasks/999 |
+| S8-R4 | unknown URL shows the app 404 page                                           | [App.jsx#L.. (path="\*")](), [NotFoundPage.jsx]()                                   | open /ceva                        |
+| S8-R5 | each component has its .module.css; index.css only shared styles             | [src/components](), [src/pages](), [index.css]()                                    | read                              |
+| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /<resource>/:id | [Layout.jsx](), [ProdusCard.jsx](), [ProdusDetaliuPage.jsx](), [NotFoundPage.jsx]() | querySelector in the console      |
+| S8-R7 | README Stage 8 section + AI log                                              | [ai-log/etapa-08.md]()                                                              | read                              |
+| S8-R8 | commit "Stage 8" pushed                                                      | [link catere toate commit-urile]()                                                  | commit history                    |
+
 ## Status
 
 - [x] Stage 1: static mockup
@@ -141,4 +157,4 @@ in the list.
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
 - [x] Stage 7: form and validation
-- [ ] Stage 8: routing and detail page
+- [ ] Stage 9: own backend with Express

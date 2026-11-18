@@ -1,0 +1,252 @@
+/* Stiluri globale: variabile, elemente de baza, clase comune.
+   Stilurile de componenta stau in fisierele *.module.css */
+
+/* ---------- Culori: tema luminoasa ---------- */
+:root {
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #767676;
+  --accent: #e2001a;
+  --accent-dark: #b50015;
+  --accent-soft: #fde8e8;
+  --border: #e5e7eb;
+  --cerere-mare: #c0392b;
+  --cerere-medie: #b8762f;
+  --cerere-mica: #3c8a5d;
+  --in-stoc: #2e9e4e;
+  --tag: #ffd23c;
+
+  /* cardurile "inversate" (negre in light, deschise in dark) */
+  --ink: #1a1a1a;
+  --on-ink: #f4f5f7;
+  --on-ink-muted: #a8a8a8;
+  --on-ink-stoc: #4fd47a;
+  --on-ink-border: #333438;
+
+  --radius-mare: 20px;
+  --radius-mic: 12px;
+
+  --error-bg: #fde8e8;
+  --error-text: #9f1c2b;
+  --error-border: #f3b4bb;
+}
+
+/* ---------- Culori: tema intunecata ---------- */
+/* sistemul e dark si utilizatorul n-a ales explicit "light" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a;
+    --card: #1e2024;
+    --text: #f2f2f2;
+    --muted: #9a9a9a;
+    --accent: #ff3b4e;
+    --accent-dark: #ff6b78;
+    --accent-soft: #3a1418;
+    --border: #2d2f34;
+    --cerere-mare: #e05a4a;
+    --cerere-medie: #d99a4e;
+    --cerere-mica: #4fb87a;
+    --in-stoc: #3fc268;
+    --tag: #ffd23c;
+
+    --ink: #f2f2f2;
+    --on-ink: #15161a;
+    --on-ink-muted: #5f6066;
+    --on-ink-stoc: #2e9e4e;
+    --on-ink-border: #d6d7da;
+
+    --error-bg: #3a1418;
+    --error-text: #ff9aa4;
+    --error-border: #6b2530;
+  }
+}
+
+/* tema aleasa din buton are prioritate fata de cea a sistemului */
+:root[data-theme="dark"] {
+  --bg: #15161a;
+  --card: #1e2024;
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
+  --accent: #ff3b4e;
+  --accent-dark: #ff6b78;
+  --accent-soft: #3a1418;
+  --border: #2d2f34;
+  --cerere-mare: #e05a4a;
+  --cerere-medie: #d99a4e;
+  --cerere-mica: #4fb87a;
+  --in-stoc: #3fc268;
+  --tag: #ffd23c;
+
+  --ink: #f2f2f2;
+  --on-ink: #15161a;
+  --on-ink-muted: #5f6066;
+  --on-ink-stoc: #2e9e4e;
+  --on-ink-border: #d6d7da;
+
+  --error-bg: #3a1418;
+  --error-text: #ff9aa4;
+  --error-border: #6b2530;
+}
+
+/* ---------- Elemente de baza ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Clase comune ---------- */
+
+/* panoul alb folosit de toate paginile */
+.panel {
+  min-width: 0;
+  padding: 22px;
+  border-radius: var(--radius-mare);
+  background: var(--card);
+}
+
+.panel h2 {
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* mesaj de informare (incarcare, 404) */
+.info {
+  color: var(--muted);
+}
+
+/* lista goala */
+.empty {
+  padding: 40px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-mare);
+  background: var(--card);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* mesaj de eroare */
+.error {
+  padding: 10px 12px;
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  background: var(--error-bg);
+  color: var(--error-text);
+  font-size: 0.85rem;
+}
+
+/* butonul principal (fost .btn-adauga); merge si pe <Link> */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* butonul de stergere: rotund, cu iconita de cos (fost .btn-sterge) */
+.btn-danger {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn-danger:hover {
+  opacity: 1;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* eticheta de cerere (galbena); badge-mare / badge-medie / badge-mica
+   raman pe element pentru o eventuala colorare pe nivel */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--tag);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* punctele colorate: categorii (Layout) si legenda inelului (ProdusePage) */
+.punct {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+.punct-accent {
+  background: var(--accent);
+}
+.punct-mare {
+  background: var(--cerere-mare);
+}
+.punct-medie {
+  background: var(--cerere-medie);
+}
+.punct-mica {
+  background: var(--cerere-mica);
+}

@@ -1,0 +1,62 @@
+/* ---------- Formular produs ---------- */
+/* .error si .btn sunt clase globale, in index.css */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- Camp (label + input/select) ---------- */
+.form-camp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.form-camp input,
+.form-camp select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-mic);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: border-color 0.15s ease;
+}
+
+.form-camp input::placeholder {
+  color: var(--muted);
+}
+
+.form-camp input:focus,
+.form-camp select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* campul invalid (aria-invalid vine din validare) */
+.form-camp input[aria-invalid="true"] {
+  border-color: var(--accent);
+}
+
+/* ---------- Checkbox ---------- */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}

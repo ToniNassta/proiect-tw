@@ -1,0 +1,20 @@
+/* ---------- Pagina Despre ---------- */
+/* fundalul, colturile si padding-ul vin din clasa globala .panel (index.css) */
+.despre {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+.despre h2 {
+  margin-bottom: 0; /* spatierea vine din gap */
+}
+
+/* rândul cu tehnologiile, despărțit printr-o linie */
+.stack {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
