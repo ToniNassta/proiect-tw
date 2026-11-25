@@ -7,7 +7,7 @@ function ProdusCard({ produs, onToggle, onDelete }) {
   return (
     <li
       className={!produs.statusInStoc ? styles.done : undefined}
-      data-testid="detail-title"
+      data-testid="item"
       data-id={produs.id}
     >
       <div className={styles.card}>
@@ -25,7 +25,7 @@ function ProdusCard({ produs, onToggle, onDelete }) {
           />
         </div>
 
-        <h3>
+        <h3 data-testid="item-title">
           <Link
             to={`/produseArr/${produs.id}`}
             className={styles.title}

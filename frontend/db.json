@@ -3,7 +3,7 @@
     {
       "id": 3,
       "numeProdus": "Mixer de bucatarie electric",
-      "statusInStoc": true,
+      "statusInStoc": false,
       "statusCerere": "mica"
     },
     {
