@@ -69,7 +69,7 @@ export default function ProduseForm({ onAdd }) {
         <select
           value={cerere}
           onChange={(e) => setCerere(e.target.value)}
-          data-testid="form-prioritate"
+          data-testid="form-statusCerere"
         >
           {CERERE.map((c) => (
             <option key={c.value} value={c.value}>

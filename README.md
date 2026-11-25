@@ -134,7 +134,7 @@ in the list.
 
 ## Stage 8: routing and detail page
 
-Three pages behind React Router: the list, a detail page at `/tasks/:id`,
+Three pages behind React Router: the list, a detail page at `/produseArr/:id`,
 and an about page, plus a 404 page. Component styles moved to CSS Modules.
 
 | ID    | Requirement                                                                  | Where (permalink)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | How to check                      |
