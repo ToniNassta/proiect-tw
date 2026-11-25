@@ -7,6 +7,7 @@ Claude
 ## Conversations
 
 https://claude.ai/share/6ebae1a5-b733-4b72-b852-13fcb94d6909
+https://claude.ai/share/eae5de75-aa96-49f0-a232-0ac123fe3ab8
 
 In acesta conversatie cu agentul AI am avut mai multe cerinte cum ar fi:
 
@@ -20,6 +21,7 @@ In acesta conversatie cu agentul AI am avut mai multe cerinte cum ar fi:
 8. Restructurarea aplicatiei cu React Router
 9. Stilizare de pagini
 10. Altele (corectare etichete, formatare cod, extrage cod pentur creare unor noi componenete, intrbari despre tag-uri HTML, verificre adaptare pentru tema mea a unor fisiere generate de el, modificari de desing, creare functiei fetchProdus)
+11. Corectare greseli primite din feedback
 
 ## Key requests
 
@@ -50,3 +52,9 @@ Changed or rejected:
 Asked: ajutor la completarea ai-log-ului
 Got: lista cu ce a efectuat
 Changed or rejected: am scris lista folosind raspunsul si istoricul din conversatie
+
+11. Corectare greseli primite din feedback
+
+Asked: i-am dat documentele din etapa 7 si etapa 8 si repo-ul de pe github si feedback-ul si i-am ceurt ajutor cu corectatul si verificatul
+Got: evaluari despre repo, verificari pe parcurs, cum sa corectez cerintele si cod
+Changed or rejected: am luat ce aveam nevoie din raspunsuri
