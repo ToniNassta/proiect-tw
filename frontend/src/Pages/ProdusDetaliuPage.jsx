@@ -56,7 +56,7 @@ export default function ProdusDetaliuPage() {
   }
 
   return (
-    <section className={`panel ${styles.detail}`} data-testid="detail">
+    <section className={`panel ${styles.detail}`} data-testid="detail-title">
       <Link to="/" className={styles.inapoi}>
         ← Înapoi la listă
       </Link>

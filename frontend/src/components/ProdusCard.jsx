@@ -7,7 +7,7 @@ function ProdusCard({ produs, onToggle, onDelete }) {
   return (
     <li
       className={!produs.statusInStoc ? styles.done : undefined}
-      data-testid="item"
+      data-testid="detail-title"
       data-id={produs.id}
     >
       <div className={styles.card}>
