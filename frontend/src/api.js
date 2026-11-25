@@ -37,3 +37,7 @@ export function deleteProdus(id) {
 export function fetchProdus(id) {
   return request(`/produseArr/${id}`);
 }
+
+// Etapa 8 (termen 26.11 ora 22:00):
+//   [lipsă] S8-R2: Un click pe un element deschide pagina lui de detaliu, cu datele corecte.
+//       motiv: adresa /produse/3, asteptat /produseArr/3 (verificat pe test pe commit 4bccf56 (stage8-2))

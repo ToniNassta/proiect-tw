@@ -53,6 +53,12 @@
       "statusCerere": "medie",
       "statusInStoc": true,
       "id": 12
+    },
+    {
+      "numeProdus": "test-etapa7-S7R3",
+      "statusCerere": "medie",
+      "statusInStoc": true,
+      "id": 13
     }
   ]
 }

@@ -27,7 +27,7 @@ function ProdusCard({ produs, onToggle, onDelete }) {
 
         <h3>
           <Link
-            to={`/produse/${produs.id}`}
+            to={`/produseArr/${produs.id}`}
             className={styles.title}
             data-testid="item-link"
           >
